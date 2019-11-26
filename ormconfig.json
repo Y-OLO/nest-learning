@@ -1,0 +1,13 @@
+{
+  "type": "mysql",
+  "host": "192.168.168.62",
+  "port": 3308,
+  "username": "root",
+  "password": "asa",
+  "database": "test",
+  "entities": [
+    "dist/**/*.entity{.ts,.js}"
+  ],
+  "synchronize": true,
+  "deugger": true
+}

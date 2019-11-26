@@ -1,0 +1,55 @@
+@baseUrl = http://localhost:3000/api
+
+# # @name 测试用例
+# GET  {{baseUrl}}/car HTTP/1.1
+# Content-Type: application/json
+
+# # @name 测试用例2 
+# GET  {{baseUrl}}/car/nest?test=1&bundle_id=demo&msg=123123 HTTP/1.1
+
+# # @name 测试用例3通配符
+# GET  {{baseUrl}}/car/12/test HTTP/1.1
+# Content-Type: application/json
+
+# # @name 获取状态码
+# GET {{baseUrl}}/car/code HTTP/1.1
+
+# # @name 同步请求
+# GET {{baseUrl}}/car/promise/3 HTTP/1.1
+
+
+# # @name 同步请求
+# POST  {{baseUrl}}/car HTTP/1.1
+# Content-Type: application/json
+
+# {
+#     "name":"张三",
+#     "age":1,
+#     "breed":"中国"
+# }
+
+# # @name 创建数据集合
+# POST  {{baseUrl}}/car/createCat HTTP/1.1
+# Content-Type: application/json
+
+# {
+#     "name":"张三",
+#     "age":20,
+#     "breed":"中国"
+# }
+
+
+# @name 获取数据集合
+GET   {{baseUrl}}/car/findCar?id=3 HTTP/1.1
+Content-Type: application/json
+
+
+# # @name 创建数据集合
+# GET   {{baseUrl}}/bus/asyncCarService HTTP/1.1
+# Content-Type: application/json
+
+
+
+# # @name 测试为什么要使用全局变量
+# GET   {{baseUrl}}/car/busSay HTTP/1.1
+# Content-Type: application/json
