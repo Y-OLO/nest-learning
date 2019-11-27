@@ -1,3 +1,4 @@
+## 需要安装REST Client插件
 @baseUrl = http://localhost:3000/api
 
 # # @name 测试用例
