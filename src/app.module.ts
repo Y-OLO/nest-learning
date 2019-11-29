@@ -1,17 +1,15 @@
-import { CacheModule, Module, NestModule, MiddlewareConsumer, RequestMethod } from '@nestjs/common';
+import { CacheModule, Module, NestModule, MiddlewareConsumer } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { CarController } from './car/car.controller';
-import { CarService } from './car/car.service';
 import { LoggerMiddleware } from './logger.middleware';
 import { CarModule } from './car/car.module';
-import { BusController } from './bus/bus.controller';
-import { BusService } from './bus/bus.service';
 import { BusModule } from './bus/bus.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { TypeormService } from './typeorm/typeorm.service';
 import { TypeormModule } from './typeorm/typeorm.module';
 import { ConfigModule } from './config/config.module';
+import { AuthModule } from './auth/auth.module';
 
 
 @Module({
@@ -25,7 +23,8 @@ import { ConfigModule } from './config/config.module';
       imports: [ConfigModule],
       useClass: TypeormService,
     }),
-    TypeormModule
+    TypeormModule,
+    AuthModule
   ],
 })
 export class AppModule implements NestModule {

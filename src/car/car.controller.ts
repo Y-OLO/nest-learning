@@ -1,5 +1,5 @@
-import { Controller, Get, Param, Req, HttpCode, Post, Body, Res, HttpStatus, UsePipes, UseInterceptors, CacheInterceptor, UseGuards, Query } from '@nestjs/common';
-import { Request, Response, response } from 'express';
+import { Controller, Get, Param, Req, HttpCode, Post, Body, Res, HttpStatus, UsePipes, UseGuards, Query } from '@nestjs/common';
+import { Request, Response } from 'express';
 import { CreateCatDto } from './entity/cat.dto';
 import { CarService } from './car.service';
 import { ValidationPipe } from '../validation.pipe';
