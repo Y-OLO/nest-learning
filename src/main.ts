@@ -6,15 +6,18 @@ import {
 } from '@nestjs/platform-fastify';
 import { AuthGuard } from './auth.guard';
 
-const compression = require("compression");
-const helmet = require("helmet");
-const csurf = require("csurf");
-const rateLimit = require("express-rate-limit");
+const compression = require('compression');
+const helmet = require('helmet');
+const csurf = require('csurf');
+const rateLimit = require('express-rate-limit');
 
-declare const module: any;//添加项
+declare const module: any; //添加项
 
 async function bootstrap() {
-  const app = await NestFactory.create<NestFastifyApplication>(AppModule, new FastifyAdapter({ logger: true }));
+  const app = await NestFactory.create<NestFastifyApplication>(
+    AppModule,
+    new FastifyAdapter({ logger: true }),
+  );
 
   // 开启跨域
   app.enableCors();
@@ -33,7 +36,7 @@ async function bootstrap() {
 
   const limiter = rateLimit({
     windowMs: 15 * 60 * 1000, // 15 minutes
-    max: 100 // limit each IP to 100 requests per windowMs
+    max: 100, // limit each IP to 100 requests per windowMs
   });
   // 为了保护您的应用程序免受暴力攻击，您必须实现某种速率限制。
   app.use(limiter);
@@ -41,13 +44,12 @@ async function bootstrap() {
   // 全局设置守卫
   // app.useGlobalGuards(new AuthGuard());
 
-  await app.listen(3000, '0.0.0.0');
+  await app.listen(3000);
 
   //添加项
   if (module.hot) {
     module.hot.accept();
     module.hot.dispose(() => app.close());
   }
-
 }
 bootstrap();
